@@ -1,8 +1,8 @@
 import org.mockito.Mockito.{times, verify, when}
-import org.scalatest.{BeforeAndAfterEach, Matchers, WordSpec}
+import org.scalatest.{Matchers, WordSpec}
 import org.scalatest.mockito.MockitoSugar
 
-class CheckoutSpec extends WordSpec with Matchers with BeforeAndAfterEach with MockitoSugar {
+class CheckoutSpec extends WordSpec with Matchers with MockitoSugar {
 
   val priceConfigurationMock = mock[SkuPriceConfiguration]
   val alternativePriceConfigurationMock = mock[SkuPriceConfiguration]
