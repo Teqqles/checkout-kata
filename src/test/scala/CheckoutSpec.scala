@@ -4,8 +4,8 @@ import org.scalatest.mockito.MockitoSugar
 
 class CheckoutSpec extends WordSpec with Matchers with MockitoSugar {
 
-  val priceConfigurationMock = mock[SkuPriceConfiguration]
-  val alternativePriceConfigurationMock = mock[SkuPriceConfiguration]
+  val priceConfigurationMock = mock[PriceConfiguration]
+  val alternativePriceConfigurationMock = mock[PriceConfiguration]
   val checkout = new Checkout(priceConfigurationMock)
 
   when(priceConfigurationMock.getItemPrice(A)) thenReturn 50

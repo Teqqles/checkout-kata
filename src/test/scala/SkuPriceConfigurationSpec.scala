@@ -10,11 +10,11 @@ class SkuPriceConfigurationSpec extends WordSpec with Matchers {
     )
   }
 
-  val standardStockPriceConfiguration = SkuPriceConfiguration(SkuPrices())
+  val standardStockPriceConfiguration = PriceConfiguration(SkuPrices())
 
   "SkuPriceConfiguration" should {
     "accept an empty stocklist" in {
-      SkuPriceConfiguration(Map())
+      PriceConfiguration(Map())
     }
     "return a price for a given SKU" in {
       standardStockPriceConfiguration.getItemPrice(A) should be(2.99f)
@@ -22,11 +22,11 @@ class SkuPriceConfigurationSpec extends WordSpec with Matchers {
     }
     "provide the latest price supplied for an SKU" in {
       val revisedStockPrice = A -> 6f
-      val stockPriceConfiguration = SkuPriceConfiguration(SkuPrices() + revisedStockPrice)
+      val stockPriceConfiguration = PriceConfiguration(SkuPrices() + revisedStockPrice)
       stockPriceConfiguration.getItemPrice(A) should be(6)
     }
     "notify the caller that an item does not exist" in {
-      val emptyPriceConfig = SkuPriceConfiguration(Map())
+      val emptyPriceConfig = PriceConfiguration(Map())
       an[UnknownStockItemException] should be thrownBy emptyPriceConfig.getItemPrice(A)
       an[UnknownStockItemException] should be thrownBy standardStockPriceConfiguration.getItemPrice(D)
     }

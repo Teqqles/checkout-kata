@@ -1,10 +1,10 @@
 object Checkout {
-  def apply(priceConfiguration: SkuPriceConfiguration, runningTotal: Float) = {
-    new Checkout(priceConfiguration: SkuPriceConfiguration, runningTotal)
+  def apply(priceConfiguration: PriceConfiguration, runningTotal: Float) = {
+    new Checkout(priceConfiguration: PriceConfiguration, runningTotal)
   }
 }
 
-class Checkout(private val priceConfiguration: SkuPriceConfiguration,
+class Checkout(private val priceConfiguration: PriceConfiguration,
                private val shoppingBill: Float = 0f) {
   def scan(stockItem: StockItem): Checkout = {
     val itemPrice = priceConfiguration.getItemPrice(stockItem)
